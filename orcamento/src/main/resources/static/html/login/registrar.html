@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/style/estilo.css">
+    <script src="/script/registrar.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Criar nova conta</h2>
+        <form id="formRegister">
+            <label for="name">Nome completo</label>
+            <input type="text" name="name" id="name" placeholder="Nome completo" required />
+
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="E-mail" required />
+
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" placeholder="Senha" required />
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <!-- Elemento para exibir mensagens do JS -->
+        <p id="returns" role="alert" aria-live="assertive"></p>
+
+        <p>Já tem uma conta? <a href="entrar.html">Entrar</a></p>
+    </div>
+</body>
+</html>

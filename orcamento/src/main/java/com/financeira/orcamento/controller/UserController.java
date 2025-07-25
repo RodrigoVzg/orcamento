@@ -12,7 +12,7 @@ import com.financeira.orcamento.model.User;
 import com.financeira.orcamento.service.UserService;
 
 @RestController
-@RequestMapping("/User")
+@RequestMapping("/Users")
 public class UserController {
 
     private final UserService userService;
@@ -28,6 +28,7 @@ public class UserController {
 
     @PostMapping
     public User save(@RequestBody User user){
+        System.out.println(user.getEmail()+ user.getName()+ user.getId() + user.getPassword());
         return userService.save(user);
     }
 }
