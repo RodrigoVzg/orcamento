@@ -4,16 +4,24 @@
     <meta charset="UTF-8" />
     <title>Login</title>
     <link rel="stylesheet" href="/style/estilo.css">
-   
+    <script src="/script/entrar.js" defer></script>
 </head>
 <body>
     <div class="container">
         <h2>Entrar na sua conta</h2>
-        <form method="POST" action="/login">
-            <input type="email" name="email" placeholder="E-mail" required />
-            <input type="password" name="password" placeholder="Senha" required />
+        <form id="formLogin">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="E-mail" required />
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Senha" required />
+
             <button type="submit">Entrar</button>
         </form>
+
+        <!-- Mensagem de retorno -->
+        <p id="returns" role="alert" aria-live="assertive"></p>
+
         <p>Não tem uma conta? <a href="registrar.html">Crie aqui</a></p>
     </div>
 </body>

@@ -28,7 +28,6 @@ public class UserController {
 
     @PostMapping
     public User save(@RequestBody User user){
-        System.out.println(user.getEmail()+ user.getName()+ user.getId() + user.getPassword());
         return userService.save(user);
     }
 }
