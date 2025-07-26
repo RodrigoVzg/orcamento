@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Área do Usuário</title>
+    <script></script>
+</head>
+<body>
+    <h1 id="conteudo">Carregando...</h1>
+
+    <button id="logout">Sair</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/dashboard')
+                .then(res => {
+                    if (!res.ok) throw new Error("Não autorizado");
+                    return res.text();
+                })
+                .then(dados => {
+                    document.getElementById("conteudo").innerText = dados;
+                })
+                .catch(err => {
+                    alert("Você precisa estar logado!");
+                    window.location.href = '/login.html';
+                });
+
+            document.getElementById('logout').addEventListener('click', async () => {
+                await fetch('/logout', { method: 'POST' });
+                window.location.href = '/html/login/entrar.html';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 returns.textContent = '✅ Login bem-sucedido!';
                 returns.style.color = 'green';
                 setTimeout(() => {
-                    window.location.href = '/index.html';
+                     window.location.href = "/html/user/dashboard.html";
                 }, 1000);
             } else {
-                returns.textContent = text || '❌ Erro desconhecido ao fazer login.';
+                returns.textContent = text || 'E-mail ou senha inválidos.';
                 returns.style.color = 'red';
             }
         } catch (err) {

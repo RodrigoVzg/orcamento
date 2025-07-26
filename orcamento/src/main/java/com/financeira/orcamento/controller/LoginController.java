@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.financeira.orcamento.model.User;
 import com.financeira.orcamento.repository.UserRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @RestController
 @RequestMapping("/login")
@@ -24,15 +26,13 @@ public class LoginController {
         }
 
         @PostMapping
-        public ResponseEntity<String> login(@RequestBody LoginRequest request) {
-            System.out.println("Email recebido: " + request.getEmail());
-            System.out.println("Senha recebida: " + request.getPassword());
+        public ResponseEntity<String> login(@RequestBody LoginRequest request, HttpSession session) {
 
             Optional<User> userOpt = userRepository.findByEmail(request.getEmail());
 
-            System.out.println(userOpt.isPresent());
 
             if (userOpt.isPresent() && userOpt.get().getPassword().equals(request.getPassword())) {
+                session.setAttribute("usuarioLogado", userOpt.get());
                 return ResponseEntity.ok("Login realizado");
             } 
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("E-mail ou senha inválidos");
